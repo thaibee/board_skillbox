@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>advertisements list</title>
+</head>
+<body>
+{#<a href="{% url 'about' %}">about</a>#}
+<ol>
+    <li>{{ ip }}</li>
+    {% for adver in a_list %}
+        <li>{{ adver }}</li>
+    {% endfor %}
+</ol>
+
+</body>
+</html>
