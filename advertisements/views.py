@@ -37,7 +37,9 @@ class Adver(View):
         return render(request, 'advertisements/adver.html', {'counter': a})
 
     def post(self, request):
-        return render(request, 'advertisements/adver2.html', {})
+        f_name = request.POST.get('f_name')
+        l_name = request.POST.get('l_name')
+        return render(request, 'advertisements/adver2.html', {'f_name': f_name, 'l_name': l_name})
 
 
 class Contact(TemplateView):
