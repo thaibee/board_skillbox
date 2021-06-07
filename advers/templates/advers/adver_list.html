@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+{% if advertisements %}
+    <h1>Доска объявлений</h1>
+    <ul>
+    {% for adv in advertisements %}
+        <li>
+            <a href="{% url 'list' %}{{ adv.id }}">{{ adv.title }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <h1>Нет объявлений</h1>
+{% endif %}
+</body>
+</html>

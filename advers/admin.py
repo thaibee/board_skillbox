@@ -1,3 +1,11 @@
 from django.contrib import admin
+from .models import Adver, Owner
 
-# Register your models here.
+
+@admin.register(Adver)
+class AdverAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(Owner)
+class AdverAdmin(admin.ModelAdmin):
+    pass

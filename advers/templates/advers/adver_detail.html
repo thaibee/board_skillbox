@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+</head>
+<body>
+
+<p>{{ object.title }} (Цена: {{ object.price }}) руб.</p>
+<p>Текст объявления: {{ object.description }}</p>
+<p>Дата создания: {{ object.crt_time }}</p>
+<p>Количество просмотров: {{ object.view_cnt }}</p>
+{{ object.owner.f_name }}
+{{ object.owner.l_name }}
+
+</body>
+</html>
