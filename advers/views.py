@@ -1,6 +1,6 @@
 import csv
 from datetime import datetime, timedelta
-from advertisements.models import Advertisement
+from advers.models import Adver
 
 from django.shortcuts import render
 from django.views import View
@@ -9,7 +9,7 @@ from django.views.generic import TemplateView
 
 def home(request):
     ip = request.META.get('REMOTE_ADDR')
-    advers = Advertisement.objects.all()
+    advers = Adver.objects.all()
     return render(request, 'advertisements/advertisement_list.html', {'ip': ip, 'advers': advers})
 
 
@@ -27,7 +27,7 @@ class About(TemplateView):
         return context
 
 
-class Adver(View):
+class Adversss(View):
     def get(self, request):
         with open('log.csv', 'r') as file:
             reader = csv.reader(file)

@@ -12,6 +12,7 @@
         {% for adver in advers %}
             <li>
                 <p>{{ adver.title }} (Цена: {{ adver.price }}) руб.</p>
+                <p>Текст объявления: {{ adver.description }}</p>
                 <p>Дата создания: {{ adver.crt_time }}</p>
                 <p>Количество просмотров: {{ adver.view_cnt }}</p>
             </li>

@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class AdvertisementsConfig(AppConfig):
+class AdversConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'advertisements'
+    name = 'advers'
