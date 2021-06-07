@@ -1,5 +1,6 @@
 import csv
 from datetime import datetime, timedelta
+from advertisements.models import Advertisement
 
 from django.shortcuts import render
 from django.views import View
@@ -8,10 +9,8 @@ from django.views.generic import TemplateView
 
 def home(request):
     ip = request.META.get('REMOTE_ADDR')
-    a_list = ['Мастер на час',
-              'Выведение из запоя',
-              'Услуги экскаватора погрузчика', ]
-    return render(request, 'advertisements/advertisement_list.html', {'ip': ip, 'a_list': a_list})
+    advers = Advertisement.objects.all()
+    return render(request, 'advertisements/advertisement_list.html', {'ip': ip, 'advers': advers})
 
 
 def play(request):

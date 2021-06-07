@@ -5,13 +5,21 @@
     <title>advertisements list</title>
 </head>
 <body>
-{#<a href="{% url 'about' %}">about</a>#}
-<ol>
-    <li>{{ ip }}</li>
-    {% for adver in a_list %}
-        <li>{{ adver }}</li>
-    {% endfor %}
-</ol>
+<h1>Бесплатные объявления</h1>
 
+<ul>
+    {% if advers %}
+        {% for adver in advers %}
+            <li>
+                <p>{{ adver.title }} (Цена: {{ adver.price }}) руб.</p>
+                <p>Дата создания: {{ adver.crt_time }}</p>
+                <p>Количество просмотров: {{ adver.view_cnt }}</p>
+            </li>
+        {% endfor %}
+    {% else %}
+        <li>Объявлений нет</li>
+    {% endif %}
+</ul>
+<h4>source ip: {{ ip }}</h4>
 </body>
 </html>
