@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Adver</title>
+</head>
+<body>
+<h1>Какое у вас объявление?</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ adver_form.as_p }}
+    <button type="submit">Отправить</button>
+</form>
+
+</body>
+</html>

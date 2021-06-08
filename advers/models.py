@@ -41,7 +41,9 @@ class Owner(models.Model):
     l_name = models.CharField(max_length=50, verbose_name='Фамилия')
     f_name = models.CharField(max_length=50, verbose_name='Имя')
     phone_number = models.CharField(max_length=15, verbose_name='Телефонный номер')
-    email = models.CharField(max_length=50, verbose_name='Электронная почта')
+    email = models.EmailField(max_length=50, verbose_name='Электронная почта')
+    birthday = models.DateField(verbose_name='Дата рождения')
 
     def __str__(self):
-        return self.email
+        return self.l_name + ' ' + self.f_name
+

@@ -10,4 +10,6 @@ urlpatterns = [
     path('contact/', views.Contact.as_view(), name='contact'),
     path('list/', views.Advertisements.as_view(), name='list'),
     path('list/<int:pk>', views.AdverDetail.as_view(), name='detail'),
+    path('register_owner/', views.RegisterOwner.as_view(), name='register_owner'),
+    path('register_adver/', views.RegisterAdver.as_view(), name='register_adver'),
 ]
