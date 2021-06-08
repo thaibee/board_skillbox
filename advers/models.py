@@ -1,3 +1,4 @@
+import uuid as uuid
 from django.db import models
 
 
@@ -43,6 +44,7 @@ class Owner(models.Model):
     phone_number = models.CharField(max_length=15, verbose_name='Телефонный номер')
     email = models.EmailField(max_length=50, verbose_name='Электронная почта')
     birthday = models.DateField(verbose_name='Дата рождения')
+    #uuid = models.UUIDField(editable=False, default=uuid, unique=True)
 
     def __str__(self):
         return self.l_name + ' ' + self.f_name

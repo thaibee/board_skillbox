@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.views import LoginView
 from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import AuthForm
@@ -12,7 +13,7 @@ def auth(request):
             password = auth_form.cleaned_data.get('password')
             user = authenticate(username=username, password=password)
             if user:
-                if user.is_active: #нерабочая хрень
+                if user.is_active:  # нерабочая хрень
                     print('active')
                     login(request, user)
                     return HttpResponse('ok')
@@ -24,3 +25,7 @@ def auth(request):
     else:
         auth_form = AuthForm()
         return render(request, 'user/auth.html', {'auth_form': auth_form})
+
+
+class Auth2(LoginView):
+    template_name = 'user/auth.html'

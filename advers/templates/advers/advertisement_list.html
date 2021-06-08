@@ -6,6 +6,10 @@
 </head>
 <body>
 <h1>Бесплатные объявления</h1>
+{% if request.user.is_authenticated %}
+<h1>Привет, {{ request.user }}</h1>
+    <a href="{% url 'logout' %}">logout</a>
+{% endif %}
 
 <ul>
     {% if advers %}

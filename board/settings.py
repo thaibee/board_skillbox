@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'advers.apps.AdversConfig',
     'user.apps.UserConfig',
+    'testuuid.apps.TestuuidConfig'
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,5 @@ CACHES = {
         'LOCATION': os.path.join(BASE_DIR, 'filecache'),
     }
 }
+
+LOGIN_REDIRECT_URL = '/'

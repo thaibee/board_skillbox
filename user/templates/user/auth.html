@@ -8,7 +8,7 @@
 <h1>Please enter:</h1>
 <form method="post">
     {% csrf_token %}
-    {{ auth_form.as_p }}
+    {{ form.as_p }}
     <button type="submit">Login</button>
 </form>
 </body>

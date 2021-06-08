@@ -1,6 +1,9 @@
 import csv
 from datetime import datetime, timedelta
 
+import uuid
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 from advers.forms import OwnerForm, AdverForm
 from advers.models import Adver, Owner
 
@@ -9,10 +12,12 @@ from django.views import View, generic
 from django.views.generic import TemplateView
 
 
+@login_required
 def home(request):
     ip = request.META.get('REMOTE_ADDR')
     advers = Adver.objects.all()
-    return render(request, 'advers/advertisement_list.html', {'ip': ip, 'advers': advers})
+    print(uuid.uuid4)
+    return render(request, 'advers/advertisement_list.html', {'ip': ip, 'advers': advers, 'logout': logout})
 
 
 def play(request):
