@@ -4,11 +4,13 @@ from .models import Adver, Owner, Type, Status
 
 @admin.register(Adver)
 class AdverAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['id', 'title', 'upd_time', 'description']
+    list_filter = ['title', 'upd_time', 'description']
+    search_fields = ['title', 'description']
 
 
 @admin.register(Owner)
-class AdverAdmin(admin.ModelAdmin):
+class OwnerAdmin(admin.ModelAdmin):
     pass
 
 

@@ -9,6 +9,11 @@ class OwnerForm(forms.ModelForm):
         model = Owner
         fields = ['l_name', 'f_name', 'phone_number', 'email', 'birthday']
 
+    birthday = forms.DateField(
+        widget=forms.DateInput(format='%d/%m/%Y'),
+        input_formats=('%d/%m/%Y',)
+    )
+
 
 class AdverForm(forms.Form):
     title = forms.CharField(min_length=3, max_length=20)
@@ -23,7 +28,7 @@ class AdverForm(forms.Form):
 
     def clean(self):
         cleaned_data = super(AdverForm, self).clean()
-        price = cleaned_data.get('price')
+        price = cleaned_data['price']
         if price == 11:
             msg = 'Смешная цена'
             self.add_error('price', msg)

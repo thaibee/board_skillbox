@@ -90,12 +90,28 @@ class RegisterAdver(View):
     def post(self, request):
         adver_form = AdverForm(request.POST)
         if adver_form.is_valid():
-            new_adver = Adver()
-            data = adver_form.cleaned_data
-            new_adver.title = data['title']
-            new_adver.description = data['description']
-            new_adver.price = data['price']
-            print(new_adver.title, new_adver.description, new_adver.price)
-            new_adver.save()
+            '''записать вручную по полю или одной строкой всю модель'''
+            # new_adver = Adver()
+            # data = adver_form.cleaned_data
+            # new_adver.title = data['title']
+            # new_adver.description = data['description']
+            # new_adver.price = data['price']
+            # print(new_adver.title, new_adver.description, new_adver.price)
+            # new_adver.save()
+            Adver.objects.create(**adver_form.cleaned_data)
             return HttpResponseRedirect('/list/')
         return render(request, 'advers/register_adver.html', {'adver_form': adver_form})
+
+
+class EditOwner(View):
+    def get(self, request, id):
+        owner = Owner.objects.get(pk=id)
+        owner_form = OwnerForm(instance=owner)
+        return render(request, 'advers/edit_owner.html', {'id': id, 'owner_form': owner_form})
+
+    def post(self, request, id):
+        owner = Owner.objects.get(pk=id)
+        owner_form = OwnerForm(request.POST, instance=owner)
+        if owner_form.is_valid():
+            owner.save()
+        return render(request, 'advers/edit_owner.html', {'id': id, 'owner_form': owner_form})
