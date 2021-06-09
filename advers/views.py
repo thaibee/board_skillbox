@@ -17,6 +17,7 @@ def home(request):
     ip = request.META.get('REMOTE_ADDR')
     advers = Adver.objects.all()
     print(uuid.uuid4)
+    print(1)
     return render(request, 'advers/advertisement_list.html', {'ip': ip, 'advers': advers, 'logout': logout})
 
 
